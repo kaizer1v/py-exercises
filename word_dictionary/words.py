@@ -12,6 +12,7 @@ class dictionary(object):
 		self.sourceFilename = sourceFilename
 		self.fileDictionary = self.getDictionary()
 
+	# returns all the lines as a list from the file.
 	def getLines(self):
 		with open(self.sourceFilename) as f:
 			lines = f.readlines()
@@ -20,6 +21,7 @@ class dictionary(object):
 			toReturn.append(line.strip('\n'))
 		return toReturn
 
+	# gets a list of all the words, occuring multiple times from the file.
 	def getAllWords(self):
 		lines = self.getLines()
 		words = []
@@ -31,13 +33,17 @@ class dictionary(object):
 					words.append(word)
 		return words
 
+	# a helper function to strip off special characters from all the words.
 	def filterWord(self, word):
 		return re.sub('[^A-Za-z0-9]+', '', word.lower())
 
+	# a helper file to close the open file.
 	def closeFile(self):
 		self.sourceFilename.close()
 		return True
 
+	# this is the method that generates the dictionary from the file and
+	# 	adds it to the member variable fileDictionary and returns it.
 	def getDictionary(self):
 		lines = self.getLines()
 		for line in lines:
@@ -51,9 +57,12 @@ class dictionary(object):
 					self.fileDictionary[word] += 1
 		return self.fileDictionary
 
+	# a print method to print the complete dictionary.
 	def printDictionary(self):
-		return self.fileDictionary
+		for word, count in self.fileDictionary.items():
+			print '%s: %d' % (word, count)
 
+	# a method that returns the number of occurances of a given word.
 	def getWordOccurance(self, word):
 		if word in self.fileDictionary:
 			wordCount = self.fileDictionary[word]
@@ -61,6 +70,7 @@ class dictionary(object):
 			wordCount = 'Sorry, that word doesn\'t exist in this text.'
 		return wordCount
 
+	# a method to get the most occuring word other from the dictionary.
 	def getMostOccuringWord(self):
 		occurances = self.fileDictionary.values()
 		occurances.sort()
@@ -70,6 +80,7 @@ class dictionary(object):
 				return 'The word "%s" occurs %d times in the file.' % (word, occ)
 
 
+
+# ============================
+# EXECUTION:
 alice_dict = dictionary('alice.txt')
-# alice_dict.getDictionary()
-print alice_dict.getMostOccuringWord()
