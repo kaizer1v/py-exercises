@@ -59,8 +59,9 @@ class dictionary(object):
 
 	# a print method to print the complete dictionary.
 	def printDictionary(self):
-		for word, count in self.fileDictionary.items():
-			print '%s: %d' % (word, count)
+		sortedDict = sorted(self.fileDictionary.keys())
+		for word in sortedDict:
+			print '%s: %d' % (word, self.fileDictionary[word])
 
 	# a method that returns the number of occurances of a given word.
 	def getWordOccurance(self, word):
@@ -84,3 +85,4 @@ class dictionary(object):
 # ============================
 # EXECUTION:
 alice_dict = dictionary('alice.txt')
+alice_dict.printDictionary()
