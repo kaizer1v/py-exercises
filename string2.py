@@ -80,6 +80,14 @@ def test(got, expected):
   print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
 
 
+def stringNumTotal(str):
+  nums = str.split(',')
+  total = 0
+  for n in nums:
+    total += int(n)
+  return total
+
+
 # main() calls the above functions with interesting inputs,
 # using the above test() to check if the result is correct or not.
 def main():
