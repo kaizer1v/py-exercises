@@ -93,3 +93,12 @@ def squareroot(num):
 		guess = guess - ((guess**2) - num) / 2 * guess
 
 	return guess
+
+
+def cuberoot(num):
+	guess = num / 2.0
+	tolerance = 0.01
+	while guess**3 - num >= tolerance:
+		guess = guess - ((guess**3) - num) / 3 * (guess**2)
+
+	return guess
