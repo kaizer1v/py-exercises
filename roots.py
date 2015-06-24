@@ -22,7 +22,7 @@ against that number, until we approximately find one.
 def squareroot():
 	x = int(raw_input('Squareroot of: '))
 	if x < 0:
-		print 'Your number is changed to +%d', % x
+		print 'Your number is changed to +%d' % x
 		x = abs(x)
 	precision = 0.01
 	low = 0.0
@@ -90,7 +90,7 @@ def squareroot(num):
 	guess = num / 2.0
 	tolerance = 0.01
 	while guess**2 - num >= tolerance:
-		guess = guess - ((guess**2) - num) / 2 * guess
+		guess = guess = guess - (((guess**2) - num) / (2*guess))
 
 	return guess
 
