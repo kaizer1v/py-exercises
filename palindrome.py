@@ -4,34 +4,29 @@ def isPalindrome(str):
 	whether it is a palindrome or not. If it is
 	this returns true, false otherwise.
 
+	we have used recurssion to solve this problem.
+
 	TestCases:
+		a
+		a-a
 		nitin
 		abccba
 		xyzyy
 		keviv
 	"""
-	if len(str) % 2 == 0:
-		mid = (len(str) / 2) - 1
-	else:
-		mid = len(str) / 2
-	isPalindrome = True
 
-	for i in range(0, mid + 1):
-		if str[i] != str[-i-1]:
-			isPalindrome = False
-			break
-	return isPalindrome
+	def isChar(str):
+		str = str.lower()
+		ans = ''
+		for s in str:
+			if s in 'abcdefghijklmnopqrstuvwxyz':
+				ans = ans + s
+		return ans
 
-# Is there a faster way than this?, I guess yes
-# TRY THIS
-str = 'vtvtv'
-if len(str) % 2 == 0:
-    mid = (len(str) / 2) - 1
-    print str[:mid+1] == str[mid:]
-else:
-    print 'there'
-    mid = len(str) / 2
-    print str[:mid] == str[mid+1:]
+	def isPal(str):
+		if len(str) <= 1:
+			return True
+		else:
+			return str[0] == str[-1] and isPal(str[1:-1])
 
-
-
+	return isPal(isChar(str))

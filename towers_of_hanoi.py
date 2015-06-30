@@ -11,7 +11,10 @@ def printMove(fr, to):
 
 def towers(n, fr, to, spare):
 	"""
-	
+	This function swaps a given disc like so:
+	-> takes the top disc puts it into the spare tower
+	-> now takes the 2nd from top disc from that same previous tower and moves it to the target tower
+	-> takes that disc from the spare tower and on top of the disc in the target tower
 	"""
 	if n == 1:
 		#base case
