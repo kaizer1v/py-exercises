@@ -18,4 +18,4 @@ def recurFib(n):
 	assert type(n) == int and n >= 0
 	if n == 0 or n == 1:
 		return 1
-	return fib(n - 1) + fib(n - 2)
+	return recurFib(n - 1) + recurFib(n - 2)

@@ -136,6 +136,7 @@ def hangman(secretWord):
         print 'Available letters: ', availableLetters
         guess = raw_input('Please guess a letter: ').lower()
         lettersGuessed.append(guess)
+        availableLetters = getAvailableLetters(lettersGuessed)
         
         if guess in availableLetters:
             if guess in secretWord:
@@ -148,7 +149,6 @@ def hangman(secretWord):
             print 'Oops! You\'ve already guessed that letter:', getGuessedWord(secretWord, lettersGuessed)
 
         print '------------'
-        availableLetters = getAvailableLetters(lettersGuessed)
         wordGuessed = isWordGuessed(secretWord, lettersGuessed)
         if wordGuessed == True:
             break
@@ -158,7 +158,6 @@ def hangman(secretWord):
         print 'Congratulations, you won!'
     elif remainingChances == 0:
         print 'Sorry, you ran out of guesses. The word was', secretWord, '.'
-
 
         
 # When you've completed your hangman function, uncomment these two lines

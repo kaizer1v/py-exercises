@@ -1,4 +1,4 @@
-def cuberoot():
+def cuberoot1():
 	x = int(raw_input('Cuberoot of: '))
 	for ans in range(0, abs(x) + 1):
 		if ans**3 == x:
@@ -19,7 +19,7 @@ we are first starting from a middle point between
 is always between the low and high and check the square
 against that number, until we approximately find one.
 """
-def squareroot():
+def squareroot1():
 	x = int(raw_input('Squareroot of: '))
 	if x < 0:
 		print 'Your number is changed to +%d' % x
@@ -86,7 +86,7 @@ NOTE: the derivative for squareroot will be different from a cuberoot or
 REFERENCE: http://www.sosmath.com/calculus/diff/der07/der07.html
 					 http://web.mit.edu/10.001/Web/Course_Notes/NLAE/node6.html
 """			
-def squareroot(num):
+def squareroot2(num):
 	guess = num / 2.0
 	tolerance = 0.01
 	while guess**2 - num >= tolerance:
@@ -95,10 +95,26 @@ def squareroot(num):
 	return guess
 
 
-def cuberoot(num):
-	guess = num / 2.0
-	tolerance = 0.01
-	while guess**3 - num >= tolerance:
-		guess = guess - ((guess**3) - num) / 3 * (guess**2)
+def cuberoot2(num):
+	"""
+	NOTE: The derivative of x^3 is 3x^2
+	"""
+	isNeg = False
+	epsilon = 0.01
 
-	return guess
+	if num == 0 or num == 1:
+		return num
+	elif num < 0:
+		num = abs(num)
+		isNeg = True
+
+	guess = num / 2.0
+
+	while abs(guess**3 - num) >= epsilon:
+		guess = guess - (((guess**3) - num) / (3 * (guess**2)))
+		print guess
+
+	if isNeg == True:
+		return (-1 * guess)
+	else:
+		return guess
