@@ -182,7 +182,8 @@ def isValidWord(word, hand, wordList):
 	toReturn = True
 	if word in wordList and word != '':
 		for w in word:
-			if w in handcopy.keys() and (handcopy[w] > 0):
+			if handcopy.get(w, 0) > 0:
+			# if w in handcopy.keys() and (handcopy[w] > 0):
 				handcopy[w] = handcopy[w] - 1
 			else:
 				toReturn = False
