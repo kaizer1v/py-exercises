@@ -297,7 +297,7 @@ def playGame(wordList):
 	# print dealHand(HAND_SIZE)
 
 	# ask the user
-	userinput = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game:')
+	userinput = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
 	currHand = ''
 
 	#until the user doesn't enter 'e', keep playing
@@ -315,7 +315,7 @@ def playGame(wordList):
 		else:
 			print 'Invalid command.'
 		
-		userinput = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game:')
+		userinput = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
 
 
 #
