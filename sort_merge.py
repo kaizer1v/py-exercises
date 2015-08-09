@@ -39,7 +39,7 @@ def mergeSort(L):
 	else:
 		middle = int(len(L) / 2)
 		left = mergeSort(L[:middle])
-		right = mergeSort(L[middle:])
+		right = mergeSort(L[middle:]) # note: while doing this, the middle index isn't included
 		return merge(left, right, operator.lt)
 
 

@@ -16,6 +16,9 @@ def reverseString(aStr):
     returns: a reversed string
     """
     ### TODO.
+    if len(aStr) == 1: return aStr
+    return reverseString(aStr[1:]) + aStr[0]
+
 
 #
 # Problem 4: X-ian
@@ -38,6 +41,21 @@ def x_ian(x, word):
     """
     ###TODO.
 
+    #base case is
+
+    # the .index will always return the 1st occurance's index
+    try:
+        word.index(x[0])
+    except:
+        if len(x) == 0:
+            return True
+        else:
+            return False
+        
+    return x_ian(x[1:], word[word.index(x[0]) + 1:])
+    
+
+
 #
 # Problem 5: Typewriter
 #
@@ -53,3 +71,9 @@ def insertNewlines(text, lineLength):
     returns: a string, with newline characters inserted appropriately. 
     """
     ### TODO.
+
+    # base case is, whenever I have a text whose length is smaller than the lineLength, simply return it
+    if len(text) <= lineLength: return text
+
+    # otherwise, we need to take the part from 0-lineLength + \n + do the same thing for the remaining text
+    return text[:lineLength] + '\n' + insertNewlines(text[lineLength:], lineLength)

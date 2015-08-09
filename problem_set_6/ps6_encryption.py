@@ -100,7 +100,16 @@ def buildCoder(shift):
     returns: dict
     """
     ### TODO.
-    return "Not yet implemented." # Remove this comment when you code the function
+    # return "Not yet implemented." # Remove this comment when you code the function
+    length = len(string.ascii_lowercase)
+    toReturn = {}
+    for i in range(length):
+      toReturn[string.ascii_lowercase[i]] = string.ascii_lowercase[(i + shift) % length]
+      toReturn[string.ascii_lowercase[i].upper()] = string.ascii_lowercase[(i + shift) % length].upper()
+    
+    return toReturn
+
+     
 
 def applyCoder(text, coder):
     """
@@ -111,7 +120,15 @@ def applyCoder(text, coder):
     returns: text after mapping coder chars to original text
     """
     ### TODO.
-    return "Not yet implemented." # Remove this comment when you code the function
+    #return "Not yet implemented." # Remove this comment when you code the function
+    toReturn = ''
+    for t in text:
+        if t in coder:
+            toReturn += coder[t]
+        else:
+            toReturn += t
+
+    return toReturn
 
 def applyShift(text, shift):
     """
@@ -126,7 +143,10 @@ def applyShift(text, shift):
     """
     ### TODO.
     ### HINT: This is a wrapper function.
-    return "Not yet implemented." # Remove this comment when you code the function
+    #return "Not yet implemented." # Remove this comment when you code the function
+    coder = buildCoder(shift)
+    return applyCoder(text, coder)
+
 
 #
 # Problem 2: Decryption
@@ -139,7 +159,25 @@ def findBestShift(wordList, text):
     returns: 0 <= int < 26
     """
     ### TODO
-    return "Not yet implemented." # Remove this comment when you code the function
+    #return "Not yet implemented." # Remove this comment when you code the function
+    words = text.split(' ')
+    maxValidWords = 0
+    bestShift = 0
+
+    for i in range(26):
+        validWords = 0
+        
+        for word in words:
+            decryptAttempt = applyShift(word, i)
+            if isWord(wordList, decryptAttempt):
+                validWords += 1
+    
+        if validWords > maxValidWords:
+            maxValid = validWords
+            bestShift = i
+            
+    return bestShift
+    
 
 def decryptStory():
     """
@@ -151,7 +189,11 @@ def decryptStory():
     returns: string - story in plain text
     """
     ### TODO.
-    return "Not yet implemented." # Remove this comment when you code the function
+    #return "Not yet implemented." # Remove this comment when you code the function
+    ciphertext = getStoryString()
+    wordList = loadWords()
+    shift = findBestShift(wordList, ciphertext)
+    return applyShift(ciphertext, shift)
 
 #
 # Build data structures used for entire session and run encryption
