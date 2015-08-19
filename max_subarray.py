@@ -1,9 +1,10 @@
 '''
 It takes as input an array of numbers, and it
-determines the contiguous subarray whose values have
-the greatest sum. Here, this problem is interesting
-only when there are negative numbers in the array,
-else the max sub array would be the array itself.
+determines the contiguous (adjecent elements only)
+subarray whose values have the greatest sum. Here, 
+this problem is interesting only when there are 
+negative numbers in the array, else the max sub 
+array would be the array itself.
 '''
 
 def maxSubArray(L, low, high):
@@ -54,3 +55,41 @@ def maxCrossingSubArray(L, low, mid, high):
 			maxRight = j
 
 	return (maxLeft, maxRight, leftTotal + rightTotal)
+
+
+
+
+
+myArr = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7]
+# print maxSubArray(myArr, 1, len(myArr))
+
+
+
+
+
+
+
+
+
+
+# ==============================================================
+
+def maxSubArray2(L):
+
+	# initialize max sum = 0
+
+	# loop through the array
+
+		# keep summing up the elements and store in current sum
+
+		# if the current sum > max sum till now
+			# max sum = current sum
+			# end index = current index
+		# else
+			# start index = current index
+
+
+
+myArr = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7]
+print maxSubArray2(myArr)
+# should return [18, 20, -7, 12] (sum = 33)
