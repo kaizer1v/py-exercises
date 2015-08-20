@@ -1,3 +1,24 @@
+def power(x, n):
+	'''
+	This algorithm uses the divide and conquer method
+		    --
+	 		  | x^(n/2) * x^(n/2) if n is even
+	x^n = |
+			  | x^([n-1]/2) * x^([n-1]/2) * x if n is odd
+			  --
+	'''
+	if n == 1:
+		return x
+
+	if n % 2 == 0:
+		# n is even
+		return power(x, n/2) ** 2
+	else:
+		# n is odd
+		return power(x, (n-1)/2) ** 2 * x
+
+
+
 def recurPower(base, exp):
 	"""
 	A function to calculate the exp'th power of base.
