@@ -100,3 +100,25 @@ for i in xrange(random.randint(1, 10)):
     number = random.randint(1, 10)
     mylist.append(number)
   print mylist
+
+
+
+def coinFlip(numFlips):
+  '''
+  Determines the number of times
+  the coin was flipped and resulted
+  in heads or tails. Dependent on 
+  random.
+
+  @param <int> - numFlips = number of times
+    you want to flip the coin
+
+  @return <float> - ratio of total heads that resulted
+    out of the total flips. 
+  '''
+  heads = 0.0
+  for i in range(numFlips):
+    if random.random() < 0.5:
+      heads += 1
+    
+  return heads / numFlips
