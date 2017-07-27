@@ -49,6 +49,17 @@ def linear_merge(list1, list2):
 # Then use reversed() to put the result back in the correct order. That
 # solution works in linear time, but is more ugly.
 
+# F. Given a list of items, return the index of the last
+# occurance of an item in the list. If it is unable
+# to find the item, should return "item not found"
+def last_instance(lst, item, i=0):
+    try:
+        index = lst.index(item, i)
+        return last_instance(lst, item, index + 1)
+    except:
+        if i - 1 < 0:
+            return "item does not exist"
+        return i - 1
 
 
 
@@ -77,6 +88,13 @@ def main():
        ['aa', 'bb', 'cc', 'xx', 'zz'])
   test(linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb']),
        ['aa', 'aa', 'aa', 'bb', 'bb'])
+  
+  print
+  print 'last_instance'
+  test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'c'))
+  test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'a'))
+  test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'zz'))
+  test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'dd'))
 
 
 if __name__ == '__main__':
