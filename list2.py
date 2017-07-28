@@ -61,6 +61,13 @@ def last_instance(lst, item, i=0):
             return "item does not exist"
         return i - 1
 
+# G. Given a list, for eg: ['apples', 'bananas', 'lemons']
+# return a string like 'apples, bananas and lemons', by adding
+# adding 'and' before the last item.
+def and_item(lst):
+  if len(lst) > 2:
+    return ', '.join(lst[:-1]) + ' and ' + lst[-1]
+  return ' and '.join(lst)
 
 
 # Simple provided test() function used in main() to print
@@ -95,6 +102,13 @@ def main():
   test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'a'))
   test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'zz'))
   test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'dd'))
+
+  print
+  print 'and_item'
+  test(and_item([]))
+  test(and_item(['one']))
+  test(add_item(['one', 'two']))
+  test(add_item(['one', 'two', 'three', 'four']))
 
 
 if __name__ == '__main__':
