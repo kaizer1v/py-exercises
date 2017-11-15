@@ -46,4 +46,6 @@ def gen_amicable_pairs(upto):
             to_return.append(amicable_numbers(i))
     return to_return
 
-# print gen_amicable_pairs(20)
+
+print gen_amicable_pairs(220)
+print gen_amicable_pairs(1513)
