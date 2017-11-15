@@ -1,5 +1,5 @@
-class intSet(object):
-    """An intSet is a set of integers
+class IntSet(object):
+    """An IntSet is a set of integers
     The value is represented by a list of ints, self.vals.
     Each int in the set occurs in self.vals exactly once."""
 
@@ -8,8 +8,8 @@ class intSet(object):
         self.vals = []
 
     def insert(self, e):
-        """Assumes e is an integer and inserts e into self""" 
-        if not e in self.vals:
+        """Assumes e is an integer and inserts e into self"""
+        if e not in self.vals:
             self.vals.append(e)
 
     def member(self, e):
@@ -22,7 +22,7 @@ class intSet(object):
            Raises ValueError if e is not in self"""
         try:
             self.vals.remove(e)
-        except:
+        except ValueError:
             raise ValueError(str(e) + ' not found')
 
     def __str__(self):
@@ -35,8 +35,8 @@ class intSet(object):
         return len(self.vals)
 
     def intersect(self, set2):
-        toReturn = intSet()
+        to_return = IntSet()
         for elem in self.vals:
             if set2.member(elem):
-                toReturn.insert(elem)
-        return toReturn
+                to_return.insert(elem)
+        return to_return
