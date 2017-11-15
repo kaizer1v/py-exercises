@@ -12,23 +12,25 @@
 # all adjacent == elements have been reduced to a single element,
 # so [1, 2, 2, 3] returns [1, 2, 3]. You may create a new list or
 # modify the passed in list.
+
+
 def remove_adjacent(nums):
-  # +++your code here+++
-  # return
-  y = [0]
-  for n in x:
-    if n != y[len(y) - 1]:
-      y.append(n)
-  y.remove(0)
+    # return
+    y = [0]
+    for n in x:
+        if n != y[len(y) - 1]:
+            y.append(n)
+    y.remove(0)
 
 
-# Write a function remove_duplicates that takes in a list and removes elements of the list that are the same.
+# Write a function remove_duplicates that takes in a list and removes
+# elements of the list that are the same.
 def remove_duplicates(lst):
-  new_lst = []
-  for key, l in enumerate(lst):
-    if l not in lst[key + 1:]:
-      new_lst.append(l)
-  return new_lst
+    new_lst = []
+    for key, l in enumerate(lst):
+        if l not in lst[key + 1:]:
+            new_lst.append(l)
+    return new_lst
 
 
 # E. Given two lists sorted in increasing order, create and return a merged
@@ -36,10 +38,9 @@ def remove_duplicates(lst):
 # Ideally, the solution should work in "linear" time, making a single
 # pass of both lists.
 def linear_merge(list1, list2):
-  # +++your code here+++
-  new_list = list1 + list2
-  new_list = new_list.sort()
-  return new_list
+    new_list = list1 + list2
+    new_list = new_list.sort()
+    return new_list
 
 # Note: the solution above is kind of cute, but unforunately list.pop(0)
 # is not constant time with the standard python list implementation, so
@@ -52,6 +53,8 @@ def linear_merge(list1, list2):
 # F. Given a list of items, return the index of the last
 # occurance of an item in the list. If it is unable
 # to find the item, should return "item not found"
+
+
 def last_instance(lst, item, i=0):
     try:
         index = lst.index(item, i)
@@ -64,52 +67,54 @@ def last_instance(lst, item, i=0):
 # G. Given a list, for eg: ['apples', 'bananas', 'lemons']
 # return a string like 'apples, bananas and lemons', by adding
 # adding 'and' before the last item.
+
+
 def and_item(lst):
-  if len(lst) > 2:
-    return ', '.join(lst[:-1]) + ' and ' + lst[-1]
-  return ' and '.join(lst)
+    if len(lst) > 2:
+        return ', '.join(lst[:-1]) + ' and ' + lst[-1]
+    return ' and '.join(lst)
 
 
 # Simple provided test() function used in main() to print
 # what each function returns vs. what it's supposed to return.
 def test(got, expected):
-  if got == expected:
-    prefix = ' OK '
-  else:
-    prefix = '  X '
-  print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
+    if got == expected:
+        prefix = ' OK '
+    else:
+        prefix = '  X '
+    print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
 
 
 # Calls the above functions with interesting inputs.
 def main():
-  print 'remove_adjacent'
-  test(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
-  test(remove_adjacent([2, 2, 3, 3, 3]), [2, 3])
-  test(remove_adjacent([]), [])
+    print 'remove_adjacent'
+    test(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
+    test(remove_adjacent([2, 2, 3, 3, 3]), [2, 3])
+    test(remove_adjacent([]), [])
 
-  print
-  print 'linear_merge'
-  test(linear_merge(['aa', 'xx', 'zz'], ['bb', 'cc']),
-       ['aa', 'bb', 'cc', 'xx', 'zz'])
-  test(linear_merge(['aa', 'xx'], ['bb', 'cc', 'zz']),
-       ['aa', 'bb', 'cc', 'xx', 'zz'])
-  test(linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb']),
-       ['aa', 'aa', 'aa', 'bb', 'bb'])
-  
-  print
-  print 'last_instance'
-  test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'c'))
-  test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'a'))
-  test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'zz'))
-  test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'dd'))
+    print
+    print 'linear_merge'
+    test(linear_merge(['aa', 'xx', 'zz'], ['bb', 'cc']),
+         ['aa', 'bb', 'cc', 'xx', 'zz'])
+    test(linear_merge(['aa', 'xx'], ['bb', 'cc', 'zz']),
+         ['aa', 'bb', 'cc', 'xx', 'zz'])
+    test(linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb']),
+         ['aa', 'aa', 'aa', 'bb', 'bb'])
 
-  print
-  print 'and_item'
-  test(and_item([]))
-  test(and_item(['one']))
-  test(add_item(['one', 'two']))
-  test(add_item(['one', 'two', 'three', 'four']))
+    print
+    print 'last_instance'
+    test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'c'))
+    test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'a'))
+    test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'zz'))
+    test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'dd'))
+
+    print
+    print 'and_item'
+    test(and_item([]))
+    test(and_item(['one']))
+    test(add_item(['one', 'two']))
+    test(add_item(['one', 'two', 'three', 'four']))
 
 
 if __name__ == '__main__':
-  main()
+    main()
