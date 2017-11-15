@@ -8,6 +8,7 @@
 
 # Ignore byte-compiled / optimised / DLL files
 *.py[cod]
+*.pyc
 
 # Ignore log files
 logs/
