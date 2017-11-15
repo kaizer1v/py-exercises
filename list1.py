@@ -58,6 +58,7 @@ def front_x(words):
 
 
 def sort_last(tuples):
+    pass
     # for t in tuples:
 
     # Simple provided test() function used in main() to print
