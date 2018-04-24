@@ -25,9 +25,9 @@ stuff = [a,b,c,d]
 
 val, taken = DTImplicit(stuff, 10)
 
-print ''
-print 'implicit decision search'
-print 'value of stuff'
-print val
-print 'actual stuff'
-print taken
+#print ''
+#print 'implicit decision search'
+#print 'value of stuff'
+#print val
+#print 'actual stuff'
+#print taken

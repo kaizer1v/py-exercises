@@ -1,6 +1,6 @@
 # Paste your code into this box
 
-print('Please think of a number between 0 and 100! ')
+#print('Please think of a number between 0 and 100! ')
 
 low = 0
 high = 100
@@ -16,7 +16,7 @@ while lhc != 'c':
     elif lhc == 'c':
         break
     else:
-        print('Sorry, I did not understand your input.')
+        #print('Sorry, I did not understand your input.')
     guess = (low + high) // 2
 
-print('Game over. Your secret number was {}'.format(guess))
+#print('Game over. Your secret number was {}'.format(guess))

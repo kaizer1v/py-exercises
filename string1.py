@@ -9,7 +9,7 @@
 # Basic string exercises
 # Fill in the code for the functions below. main() is already set up
 # to call the functions with a few different inputs,
-# printing 'OK' when each function is correct.
+# #printing 'OK' when each function is correct.
 # The starter code for each function includes a 'return'
 # which is just a placeholder for your code.
 # It's ok if you do not complete all the functions, and there
@@ -141,43 +141,43 @@ def lenIter(aStr):
 
 
 
-# Provided simple test() function used in main() to print
+# Provided simple test() function used in main() to #print
 # what each function returns vs. what it's supposed to return.
 def test(got, expected):
 	if got == expected:
 		prefix = ' OK '
 	else:
 		prefix = '  X '
-	print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
+	#print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
 
 
 # Provided main() calls the above functions with interesting inputs,
 # using test() to check if each result is correct or not.
 def main():
-	print 'donuts'
+	#print 'donuts'
 	# Each line calls donuts, compares its result to the expected for that call.
 	test(donuts(4), 'Number of donuts: 4')
 	test(donuts(9), 'Number of donuts: 9')
 	test(donuts(10), 'Number of donuts: many')
 	test(donuts(99), 'Number of donuts: many')
 
-	print
-	print 'both_ends'
+	#print
+	#print 'both_ends'
 	test(both_ends('spring'), 'spng')
 	test(both_ends('Hello'), 'Helo')
 	test(both_ends('a'), '')
 	test(both_ends('xyz'), 'xyyz')
 
 	
-	print
-	print 'fix_start'
+	#print
+	#print 'fix_start'
 	test(fix_start('babble'), 'ba**le')
 	test(fix_start('aardvark'), 'a*rdv*rk')
 	test(fix_start('google'), 'goo*le')
 	test(fix_start('donut'), 'donut')
 
-	print
-	print 'mix_up'
+	#print
+	#print 'mix_up'
 	test(mix_up('mix', 'pod'), 'pox mid')
 	test(mix_up('dog', 'dinner'), 'dig donner')
 	test(mix_up('gnash', 'sport'), 'spash gnort')
@@ -185,8 +185,8 @@ def main():
 
 
 
-	print
-	print 'lenIter'
+	#print
+	#print 'lenIter'
 	test(lenIter('mix e'), '4')
 	test(mix_up('dog', 'dinner'), 'dig donner')
 	test(mix_up('gnash', 'sport'), 'spash gnort')

@@ -14,7 +14,7 @@ def genSubsets(L):
   for small in smaller:
     new.append(small+extra)
   
-  print 'smaller: ', smaller, 'extra: ', extra, 'new: ', new
+  #print 'smaller: ', smaller, 'extra: ', extra, 'new: ', new
   return smaller + new
     
 # Example 1    

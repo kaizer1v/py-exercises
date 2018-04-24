@@ -18,24 +18,24 @@ class Node(object):
 
 
 
-def printList(node):
+def #printList(node):
 	'''
 	Note: this is actually outside the class.
-	will print all the nodes in a list
+	will #print all the nodes in a list
 	'''
 	while node:
-		print node 		# this will call the __str__ method automatically
+		#print node 		# this will call the __str__ method automatically
 		node = node.next
-	print
+	#print
 
-def printListBackwards(node):
+def #printListBackwards(node):
 	'''
-	Given a linked list, this fn prints the link
+	Given a linked list, this fn #prints the link
 	backwards. Note this is recursive function
 	'''
 	if node == None: return
-	printListBackwards(node.next)
-	print node,
+	#printListBackwards(node.next)
+	#print node,
 
 
 # Lets create some nodes for a linked list
@@ -51,5 +51,5 @@ n3.next = n4
 # since n4 is not linked to any other, it is the 
 # end of the linked list
 
-printList(n1)
-printListBackwards(n4)
+#printList(n1)
+#printListBackwards(n4)

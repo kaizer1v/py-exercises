@@ -108,8 +108,8 @@ for c in ["6.00x", "6.01x", "6.02x"]:
     edX.set_grade(90, c)
 
 for c in edX.myCourses:
-    print c.courseName, c.get_grade()
+    #print c.courseName, c.get_grade()
 
 
-# dir(edX) will print out all the methods for edX's class
+# dir(edX) will #print out all the methods for edX's class
 dir(edX)[2](90)

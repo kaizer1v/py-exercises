@@ -1,7 +1,7 @@
 def factors2(x):
     '''
     This function takes a
-    number and prints the factors
+    number and #prints the factors
     '''
     factors = []
     total = 0
@@ -47,5 +47,5 @@ def gen_amicable_pairs(upto):
     return to_return
 
 
-print gen_amicable_pairs(220)
-print gen_amicable_pairs(1513)
+#print gen_amicable_pairs(220)
+#print gen_amicable_pairs(1513)

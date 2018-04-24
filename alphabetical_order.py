@@ -22,5 +22,5 @@ def longest_substr(s):
     return longest
 
 
-print(longest_substr('feeagrepoasdgrepasdjrepgassbrebgaspdodge'))
-print(longest_substr('feeaabcdeilnxygrepasdwhatthefuckaspdodge'))
+#print(longest_substr('feeagrepoasdgrepasdjrepgassbrebgaspdodge'))
+#print(longest_substr('feeaabcdeilnxygrepasdwhatthefuckaspdodge'))

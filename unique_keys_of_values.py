@@ -17,7 +17,7 @@ def uniqueValues(aDict):
     for key in aDict:
         
         if aDict[key] in temp:
-            # print temp[aDict[key]][0], temp[aDict[key]]
+            # #print temp[aDict[key]][0], temp[aDict[key]]
             temp[aDict[key]][0] += 1
         else:
             temp[aDict[key]] = [1, key]
@@ -41,14 +41,14 @@ def uniqueValues(aDict):
 
 # Test Cases ---------
 aDict = {1: 1, 3: 2, 6: 0, 7: 0, 8: 4, 10: 0}
-print uniqueValues(aDict)
+#print uniqueValues(aDict)
 # should return [1, 3, 8]
 
 
 aDict = {1: 1, 2: 1, 3: 1}
-print uniqueValues(aDict)
+#print uniqueValues(aDict)
 # should return []
 
 aDict = []
-print uniqueValues(aDict)
+#print uniqueValues(aDict)
 # should return []

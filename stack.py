@@ -8,10 +8,10 @@ class Stack(object):
 		self.items = []
 
 	def __str__(self):
-		print '[',
+		#print '[',
 		for elem in self.items:
-			print elem,',',
-		print ']'
+			#print elem,',',
+		#print ']'
 
 	def push(self, item):
 		self.items.append(item)

@@ -28,7 +28,7 @@ def insertionSort(L):
 
 x = [5, 2, 4, 6, 1, 3]
 insertionSort(x)
-print x
+#print x
 
 
 
@@ -72,4 +72,4 @@ def desc(x, y):
 
 x = [31, 41, 59, 26, 41, 58]
 insertionSort2(x, desc)
-print x
+#print x

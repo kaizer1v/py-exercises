@@ -2,11 +2,11 @@
 About Towers of Hanoi
 """
 
-def printMove(fr, to):
+def #printMove(fr, to):
 	"""
-	Simply prints the steps that you are executing
+	Simply #prints the steps that you are executing
 	"""
-	print 'Move from ', str(fr), ' to ', str(to)
+	#print 'Move from ', str(fr), ' to ', str(to)
 
 
 def towers(n, fr, to, spare):
@@ -18,7 +18,7 @@ def towers(n, fr, to, spare):
 	"""
 	if n == 1:
 		#base case
-		printMove(fr, to)
+		#printMove(fr, to)
 	else:
 		#sub problems
 		towers(n - 1, fr, spare, to)

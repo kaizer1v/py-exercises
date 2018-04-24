@@ -67,8 +67,8 @@ class USResident(Person):
 
 # test cases ------------------
 vivek = USResident('Vivek shrinivasan', 'not a resident')
-print vivek
+#print vivek
 
-print vivek.getLastName()
-print vivek.getStatus()
+#print vivek.getLastName()
+#print vivek.getStatus()
 

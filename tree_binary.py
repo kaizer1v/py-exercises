@@ -70,7 +70,7 @@ def DFSBinary(root, fcn):
 	'''
 	stack = [root]
 	while len(stack) > 0:
-		print 'at node ' + str(stack[0].getValue())
+		#print 'at node ' + str(stack[0].getValue())
 		if fcn(stack[0]):
 			return True
 		else:
@@ -96,10 +96,10 @@ def gt6(node):
 	return node.getValue() > 6
 
 # lets try and find 6 within the generated binary tree
-print DFSBinary(n5, find6)
+#print DFSBinary(n5, find6)
 
 # lets try finding something that doesn't exist in the BinaryTree
-print DFSBinary(n5, find10)
+#print DFSBinary(n5, find10)
 
 
 # Similar to this is the Breadth First Binary tree algorithm, 
@@ -114,7 +114,7 @@ def BFSBinary(root, fcn):
 	'''
 	queue = [root]
 	while len(queue) > 0:
-		print 'at node ' + str(queue[0].getValue())
+		#print 'at node ' + str(queue[0].getValue())
 		if fcn(queue[0]):
 			return True
 		else:
@@ -160,10 +160,10 @@ def TracePath(node):
 		return [node] + TracePath(node.getParent())
 
 
-print''
-print 'DFS path'
+#print''
+#print 'DFS path'
 pathTo6 = DFSBinaryPath(n5, find6)
-print [e.getValue() for e in pathTo6]
+#print [e.getValue() for e in pathTo6]
 
 
 

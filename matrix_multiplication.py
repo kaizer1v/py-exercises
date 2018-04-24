@@ -25,13 +25,13 @@ def matrixMult(A, B):
 			for i in range(0, len(A)):
 				total = 0
 				result[i].append([])
-				print result
+				#print result
 				for j in range(0, len(B)):
 					total += A[i][j] * B[j][i]
-					print (i, j), A[i][j], B[j][i]
+					#print (i, j), A[i][j], B[j][i]
 				result[i][j] = total
-				print total, result
-				print
+				#print total, result
+				#print
 
 
 
@@ -42,15 +42,15 @@ matrixMult(a, b)
 
 
 # Testing isSqMatrix
-print 'a', isSqMatrix([[1, 2], [3, 4]]),                    # True
-print 'b', isSqMatrix([]),                                  # False
-print 'c', isSqMatrix([1, 2, 4]),                           # False
-print 'd', isSqMatrix([[[]]]),                              # True | should be False
-print 'e', isSqMatrix([[1, 4, 4], [2, 45]]),                # False
-print 'f', isSqMatrix([[1, 3], 4]),                         # False
-print 'g', isSqMatrix([[44], [5], [3]]),                    # False
-print 'h', isSqMatrix([[1]]),                               # True
-print 'i', isSqMatrix([[1, 2, 3], [1, 2, 3], [1, 2, 3]])    # True
+#print 'a', isSqMatrix([[1, 2], [3, 4]]),                    # True
+#print 'b', isSqMatrix([]),                                  # False
+#print 'c', isSqMatrix([1, 2, 4]),                           # False
+#print 'd', isSqMatrix([[[]]]),                              # True | should be False
+#print 'e', isSqMatrix([[1, 4, 4], [2, 45]]),                # False
+#print 'f', isSqMatrix([[1, 3], 4]),                         # False
+#print 'g', isSqMatrix([[44], [5], [3]]),                    # False
+#print 'h', isSqMatrix([[1]]),                               # True
+#print 'i', isSqMatrix([[1, 2, 3], [1, 2, 3], [1, 2, 3]])    # True
 
 
 

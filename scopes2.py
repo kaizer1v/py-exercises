@@ -1,8 +1,8 @@
 def f():
-	print x
+	#print x
 
 def g():
-	print x
+	#print x
 	x = 1
 
 x = 3

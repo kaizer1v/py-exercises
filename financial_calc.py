@@ -12,9 +12,9 @@ for month in range(1, 13):
   total += monthlyPayment
   ub = interest + ub
 
-  print 'Month: ', month
-  print 'Min month payment: ', round(monthlyPayment, 2)
-  print 'Rem Balance: ', round(ub, 2)
+  #print 'Month: ', month
+  #print 'Min month payment: ', round(monthlyPayment, 2)
+  #print 'Rem Balance: ', round(ub, 2)
 
-print 'Total paid: ', round(total, 2)
-print 'Rem Balance: ', round(ub, 2)
+#print 'Total paid: ', round(total, 2)
+#print 'Rem Balance: ', round(ub, 2)

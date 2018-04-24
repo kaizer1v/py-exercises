@@ -53,5 +53,5 @@ def product(node):
 	if node == None: return 1
 	return product(node.left) * product(node.right) * node
 
-print total(node)
-print product(node)
+#print total(node)
+#print product(node)

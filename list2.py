@@ -75,25 +75,25 @@ def and_item(lst):
     return ' and '.join(lst)
 
 
-# Simple provided test() function used in main() to print
+# Simple provided test() function used in main() to #print
 # what each function returns vs. what it's supposed to return.
 def test(got, expected):
     if got == expected:
         prefix = ' OK '
     else:
         prefix = '  X '
-    print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
+    #print '%s got: %s expected: %s' % (prefix, repr(got), repr(expected))
 
 
 # Calls the above functions with interesting inputs.
 def main():
-    print 'remove_adjacent'
+    #print 'remove_adjacent'
     test(remove_adjacent([1, 2, 2, 3]), [1, 2, 3])
     test(remove_adjacent([2, 2, 3, 3, 3]), [2, 3])
     test(remove_adjacent([]), [])
 
-    print
-    print 'linear_merge'
+    #print
+    #print 'linear_merge'
     test(linear_merge(['aa', 'xx', 'zz'], ['bb', 'cc']),
          ['aa', 'bb', 'cc', 'xx', 'zz'])
     test(linear_merge(['aa', 'xx'], ['bb', 'cc', 'zz']),
@@ -101,15 +101,15 @@ def main():
     test(linear_merge(['aa', 'aa'], ['aa', 'bb', 'bb']),
          ['aa', 'aa', 'aa', 'bb', 'bb'])
 
-    print
-    print 'last_instance'
+    #print
+    #print 'last_instance'
     test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'c'))
     test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'a'))
     test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'zz'))
     test(last_instance(['a', 'c', 'u', 'z', 'c', 'c', 'zz'], 'dd'))
 
-    print
-    print 'and_item'
+    #print
+    #print 'and_item'
     test(and_item([]))
     test(and_item(['one']))
     test(add_item(['one', 'two']))

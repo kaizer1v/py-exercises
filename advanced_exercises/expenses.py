@@ -6,12 +6,12 @@ years = 20
 values = []
 
 for i in range(years + 1):
-	values.append(principle)
-	principle += principle * interestRate
+    values.append(principle)
+    principle += principle * interestRate
 
 
 # pylab.figure(1)
-pylab.plot(range(years + 1), values, 'ro')	# contains (x, y)
+pylab.plot(range(years + 1), values, 'ro')  # contains (x, y)
 
 # Adding some titles and text
 pylab.title('At 5% growth, compounded Anually.')

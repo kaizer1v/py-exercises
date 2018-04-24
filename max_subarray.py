@@ -61,7 +61,7 @@ def maxCrossingSubArray(L, low, mid, high):
 
 
 myArr = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7]
-# print maxSubArray(myArr, 1, len(myArr))
+# #print maxSubArray(myArr, 1, len(myArr))
 
 
 
@@ -91,5 +91,5 @@ def maxSubArray2(L):
 
 
 myArr = [13, -3, -25, 20, -3, -16, -23, 18, 20, -7, 12, -5, -22, 15, -4, 7]
-print maxSubArray2(myArr)
+#print maxSubArray2(myArr)
 # should return [18, 20, -7, 12] (sum = 33)

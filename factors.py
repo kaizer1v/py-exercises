@@ -1,7 +1,7 @@
-def print_factors(x):
+def #print_factors(x):
     '''
     This function takes a
-    number and prints the factors
+    number and #prints the factors
     '''
     factors = []
     for i in range(1, x + 1):
@@ -15,5 +15,5 @@ def factors(n):
 
 
 # Usage
-print factors(135125)
-print factors(1331)
+#print factors(135125)
+#print factors(1331)

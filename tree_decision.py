@@ -85,10 +85,10 @@ def DFSDTree(root, valueFcn, constraintFcn):
 
       if best == None:
         best = stack[0]
-        print best.getValue()
+        #print best.getValue()
       elif valueFcn(stack[0].getValue()) > valueFcn(best.getValue()):
         best = stack[0]
-        print best.getValue()
+        #print best.getValue()
 
 	    temp = stack.pop(0)
 	    if temp.getRightBranch():
@@ -99,7 +99,7 @@ def DFSDTree(root, valueFcn, constraintFcn):
     else:
       stack.pop(0)
   
-  print 'visited', visited
+  #print 'visited', visited
   return best
 
 
@@ -115,10 +115,10 @@ def BFSDTree(root, valueFcn, constraintFcn):
 
       if best == None:
         best = queue[0]
-        print best.getValue()
+        #print best.getValue()
       elif valueFcn(queue[0].getValue()) > valueFcn(best.getValue()):
         best = queue[0]
-        print best.getValue()
+        #print best.getValue()
        
       temp = queue.pop(0)
       if temp.getLeftBranch():
@@ -129,7 +129,7 @@ def BFSDTree(root, valueFcn, constraintFcn):
     else:
       queue.pop(0)
   
-  print 'visited', visited
+  #print 'visited', visited
   return best
 
 
@@ -137,15 +137,15 @@ def BFSDTree(root, valueFcn, constraintFcn):
 # using the constraints and generating best possible
 #   combinations of pairs based on given constraints.
 #   Here, we need the max sum with weights <= 10
-print ''
-print 'DFS decision tree'
+#print ''
+#print 'DFS decision tree'
 foobar = DFSDTree(treeTest, sumValues, WeightsBelow10)
-print foobar.getValue()
+#print foobar.getValue()
 
-print ''
-print 'BFS decision tree'
+#print ''
+#print 'BFS decision tree'
 foobarnew = BFSDTree(treeTest, sumValues, WeightsBelow10)
-print foobarnew.getValue()
+#print foobarnew.getValue()
 
 
 
@@ -163,12 +163,12 @@ def DFSDTreeGoodEnough(root, valueFcn, constraintFcn, stopFcn):
 
       if best == None:
         best = stack[0]
-        print best.getValue()
+        #print best.getValue()
       elif valueFcn(stack[0].getValue()) > valueFcn(best.getValue()):
         best = stack[0]
-        print best.getValue()
+        #print best.getValue()
       if stopFcn(best.getValue()):
-        print 'visited', visited
+        #print 'visited', visited
         return best
         
       temp = stack.pop(0)
@@ -179,7 +179,7 @@ def DFSDTreeGoodEnough(root, valueFcn, constraintFcn, stopFcn):
   
     else:
       stack.pop(0)
-  print 'visited', visited
+  #print 'visited', visited
   return best
 
 def BFSDTreeGoodEnough(root, valueFcn, constraintFcn, stopFcn):
@@ -192,12 +192,12 @@ def BFSDTreeGoodEnough(root, valueFcn, constraintFcn, stopFcn):
     if constraintFcn(queue[0].getValue()):
       if best == None:
         best = queue[0]
-        print best.getValue()
+        #print best.getValue()
       elif valueFcn(queue[0].getValue()) > valueFcn(best.getValue()):
         best = queue[0]
-        print best.getValue()
+        #print best.getValue()
       if stopFcn(best.getValue()):
-        print 'visited', visited
+        #print 'visited', visited
         return best
       
       temp = queue.pop(0)
@@ -208,18 +208,18 @@ def BFSDTreeGoodEnough(root, valueFcn, constraintFcn, stopFcn):
     else:
         queue.pop(0)
   
-  print 'visited', visited
+  #print 'visited', visited
   return best
 
 def atLeast15(lst):
   return sumValues(lst) >= 15
 
-print ''
-print 'DFS decision tree good enough'
+#print ''
+#print 'DFS decision tree good enough'
 foobar = DFSDTreeGoodEnough(treeTest, sumValues, WeightsBelow10, atLeast15)
-print foobar.getValue()
+#print foobar.getValue()
 
-print ''
-print 'BFS decision tree good enough'
+#print ''
+#print 'BFS decision tree good enough'
 foobarnew = BFSDTreeGoodEnough(treeTest, sumValues, WeightsBelow10, atLeast15)
-print foobarnew.getValue()
+#print foobarnew.getValue()

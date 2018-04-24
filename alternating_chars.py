@@ -1,11 +1,11 @@
 def alternating_chars(s):
-    # Given a string like AABABBAB, you need to return how many chars need to be
-    # deleted so that no subsequent letters are the same
-    # Basically, AABABABBA should become ABABABA (return total chars to be
-    # deleted)
+    '''
+    Given a string like AABABBAB, you need to return how many chars need to be
+    deleted so that no subsequent letters are the same
+    Basically, AABABABBA should become ABABABA (return total chars to be
+    deleted)
+    '''
 
-    # total = len(s)
-    # while(total):
     toDel = 0
     for x in range(1, len(s)):
         if s[x] == s[x - 1]:
