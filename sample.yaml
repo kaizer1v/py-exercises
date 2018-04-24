@@ -1,0 +1,11 @@
+app:
+  name: My App name
+  desc: The basic description of the app
+
+  url: something/
+  arr:
+    something,
+    something else,
+    what else,
+    nothing else,
+    matters
