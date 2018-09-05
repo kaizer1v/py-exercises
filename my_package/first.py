@@ -1,5 +1,6 @@
 def something():
-	print "something"
+    print("this is something")
+
 
 def another():
-	print "I am another definition"
+    print("this is another definition")
