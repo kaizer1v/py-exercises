@@ -4,6 +4,7 @@ from game import Game
 p = 2
 move_sep = ','
 line_sep = '--'
+game_sep = '-----'
 coins = {
     'black': 9,
     'red': 1,
