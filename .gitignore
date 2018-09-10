@@ -19,9 +19,9 @@ logs/
 *.sqlite3
 *.sqlite3-journal
 
-# Cache folders created by Gramex
+# Cache folders 
 .cache/
-.gramex-compiled/
+__pycache__/
 
 # Old vis.py used to produce xhtml output. Ignore these
 *.xhtml
