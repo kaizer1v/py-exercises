@@ -1,29 +1,28 @@
 from game import Game
 
-sep = '--'      # seperator
+line_sep = '--'
+move_sep = ','
 coins = {
     'black': 9,
     'red': 1,
     'striker': 1
 }
 
-# read input files
+# read inputs
 f = open('inputs.txt')
-moves = f.read().replace('\n', '').split(sep)
+moves = f.read().replace('\n', '').split(line_sep)
+f.close()
 
 # create a game with some settings and 2 players
 g = Game(players=2, coins=coins)
 
+# play, until the game finishes
 for m in moves:
-    p_moves = m.split(',')
-    for p, m in enumerate(p_moves):         # turn for every player
-        # print(g.show_points(), g.can_have_winner())
-        if not g.can_have_winner():
-            # play until you have a winner
-            g.play(p, int(m))
-        else:
-            # declare a winner
-            print(g.players[p].get_points())
+    if not g.is_finish():
+        g.play(m)
+        # print(g.get_board())
+        # print('-'.join(map(str, g.get_points())))
 
-# print('player 0 =', g.players[0].get_points())
-# print('player 1 =', g.players[1].get_points())
+print('Player {} won the game. Final Score:'.format(
+    g.get_winner()
+), '-'.join(map(str, g.get_points())))
