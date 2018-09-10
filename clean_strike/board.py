@@ -18,7 +18,9 @@ class Board:
         remove coin(s) based on the coin type `ct`
         by the quantity provided `q`
         '''
-        if not self.coins[ct] == 0:
+        if self.coins[ct] <= 0:
+            self.coins[ct] = 0
+        else:
             self.coins[ct] -= q
         return self.coins
 

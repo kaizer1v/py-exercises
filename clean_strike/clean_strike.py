@@ -4,28 +4,37 @@ from game import Game
 p = 2
 move_sep = ','
 line_sep = '--'
-game_sep = '-----'
-coins = {
-    'black': 9,
-    'red': 1,
-    'striker': 1
-}
+test_sep = '-----'
 
 # read inputs
 f = open('inputs.txt')
-moves = f.read().replace('\n', '').split(line_sep)
+content = f.read().replace('\n', '')
+tests = content.split(test_sep)
 f.close()
 
-# create a game with some settings and 2 players
-g = Game(players=p, coins=coins)
+# run for every test-case
+for t in tests:
+    # create a game with coins and players
+    g = Game(players=p, coins={
+        'black': 9,
+        'red': 1,
+        'striker': 1
+    })
 
-# play, until the game finishes
-for m in moves:
-    if not g.is_finish():
-        g.play(m)
-        # print(g.get_board())
-        # print('-'.join(map(str, g.get_points())))
+    # play moves <m> until the game finishes
+    for m in t.split(line_sep):
+        if not g.is_game_over():
+            g.play(m)
 
-print('Player {} won the game. Final Score:'.format(
-    g.get_winner()
-), '-'.join(map(str, g.get_points())))
+    result = g.get_result()
+    final_score = '-'.join(map(str, g.get_points()))
+
+    # print the result
+    if result == 'draw':
+        print('Game ended as a draw. Final Score: {}'.format(final_score))
+    elif type(result) is int:
+        print('Player {} the game. Final Score: {}'.format(
+            g.get_result(),
+            final_score
+        ))
+    print('---------------------')
