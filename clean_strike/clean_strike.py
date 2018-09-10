@@ -1,7 +1,9 @@
 from game import Game
 
-line_sep = '--'
+# constants
+p = 2
 move_sep = ','
+line_sep = '--'
 coins = {
     'black': 9,
     'red': 1,
@@ -14,7 +16,7 @@ moves = f.read().replace('\n', '').split(line_sep)
 f.close()
 
 # create a game with some settings and 2 players
-g = Game(players=2, coins=coins)
+g = Game(players=p, coins=coins)
 
 # play, until the game finishes
 for m in moves:
