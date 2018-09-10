@@ -18,7 +18,7 @@ class Game:
         self.board = Board(coins)
         self.players = [Player() for i in range(players)]
 
-    def __print_name__(self, p, m):
+    def __print_details__(self, p, m):
         print('Player{} played {}. Score is {}. {}'.format(
             p,
             self.move_names[m],
@@ -44,9 +44,9 @@ class Game:
         board = self.get_board()
         min_p = min(points)
         max_p = max(points)
-        if min_p >= 5 and (abs(points[0] - points[1]) > 3):
+        if max_p >= 5 and (abs(points[0] - points[1]) > 3):
             return points.index(max_p) + 1 # returns winner player number
-        elif (min_p <= 5 and max_p <= 5) or (min_p == max_p):
+        elif (min_p <= 5 or max_p <= 5) or (min_p == max_p):
             return 'draw'                  # draw
 
     def get_winner(self):
@@ -55,15 +55,15 @@ class Game:
 
     def move(self, p, m):
         '''
-        play the move for the provided player
-        and update their player's points
+        play the move <m> for the provided player
+        and update player's <p> points
         '''        
         if m == 1:                            # strike
-            if self.board.get_coins()['black'] >= 1:
+            if not self.board.get_coins()['black'] <= 0:
                 self.players[p].add_points(1)
                 self.board.remove_coins('black', 1)
         elif m == 2:                          # multi-strike
-            if self.board.get_coins()['black'] >= 2:
+            if not self.board.get_coins()['black'] <= 1:
                 self.players[p].add_points(2)
                 self.board.remove_coins('black', 2)
         elif m == 3:                          # red-strike
@@ -76,9 +76,12 @@ class Game:
             self.players[p].remove_points(2)
         elif m == 6:                          # none <miss>
             self.players[p].commit_miss()
-        self.__print_name__(p, m)
+
+        # UNCOMMENT THE BELOW LINE TO SEE EVERY MOVE
+        # self.__print_details__(p, m)
 
     def play(self, moves):
         mvs = moves.split(self.move_sep)
         for p, m in enumerate(mvs):
-            self.move(p, int(m))
+            if not self.is_game_over():
+                self.move(p, int(m))

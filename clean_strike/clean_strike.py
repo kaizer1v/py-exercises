@@ -21,19 +21,19 @@ for t in tests:
         'striker': 1
     })
 
-    # play moves <m> until the game finishes
+    # play moves <m>
     for m in t.split(line_sep):
-        if not g.is_game_over():
-            g.play(m)
+        g.play(m)
 
     result = g.get_result()
-    final_score = '-'.join(map(str, g.get_points()))
+    final_score = ' <-> '.join(map(str, g.get_points()))
+    # print(result, final_score)
 
     # print the result
     if result == 'draw':
         print('Game ended as a draw. Final Score: {}'.format(final_score))
     elif type(result) is int:
-        print('Player {} the game. Final Score: {}'.format(
+        print('Player {} won the game. Final Score: {}'.format(
             g.get_result(),
             final_score
         ))
