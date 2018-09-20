@@ -16,6 +16,7 @@ f.close()
 for t in tests:
     # create a game with coins and players
     g = Game(players=p, coins={
+        'white': 9,
         'black': 9,
         'red': 1,
         'striker': 1

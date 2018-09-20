@@ -14,6 +14,11 @@ class Game:
             'defunct coin',
             'none'
         ]
+        self.points = {     # points based on color
+            'white': 2,
+            'black': 1,
+            'red': 2
+        }
         self.move_sep = ','
         self.board = Board(coins)
         self.players = [Player() for i in range(players)]
@@ -35,7 +40,7 @@ class Game:
     def is_game_over(self):
         board = self.get_board()
         points = self.get_points()
-        empty_board = board['black'] == 0 and board['red'] == 0
+        empty_board = board['black'] == 0 and board['red'] == 0 and board['white'] == 0
         points_crossed = min(points) >= 5 and (abs(points[0] - points[1]) > 3)
         return empty_board or points_crossed
 
@@ -45,7 +50,7 @@ class Game:
         min_p = min(points)
         max_p = max(points)
         if max_p >= 5 and (abs(points[0] - points[1]) > 3):
-            return points.index(max_p) + 1 # returns winner player number
+            return points.index(max_p) + 1  # returns winner player number
         elif (min_p <= 5 or max_p <= 5) or (min_p == max_p):
             return 'draw'                  # draw
 
@@ -53,35 +58,54 @@ class Game:
         points = self.get_points()
         return points.index(max(points)) + 1
 
-    def move(self, p, m):
+    def strike(self, p, c):
+        '''
+        strikes a single coin
+        <args> should contain a single coin
+        '''
+        if not self.board.get_coins()[c[0]] <= 0:
+            self.players[p].add_points(self.points[c[0]])
+            self.board.remove_coins(c[0], 1)
+
+    def multistrike(self, p, c):
+        for ct in c:
+            q = c.count(ct)
+            if not self.board.get_coins()[ct] <= 0:
+                self.players[p].add_points(q * self.points[ct])
+                self.board.remove_coins(ct, q)
+        print(self.board.get_coins())
+
+    def red_strike(self, p, c):
+        if c[0] == 'red' and self.board.get_coins()[c[0]] != 0:
+            self.players[p].add_points(3)
+            self.board.remove_coins(c[0], 1)
+
+    def striker_strike(self, p, c):
+        self.players[p].remove_points(1)
+
+    def defunct(self, p, c):
+        self.players[p].remove_points(2)
+
+    def nothing(self, p, c):
+        self.players[p].commit_miss()
+
+    def move(self, p, m, *coins):
         '''
         play the move <m> for the provided player
         and update player's <p> points
-        '''        
-        if m == 1:                            # strike
-            if not self.board.get_coins()['black'] <= 0:
-                self.players[p].add_points(1)
-                self.board.remove_coins('black', 1)
-        elif m == 2:                          # multi-strike
-            if not self.board.get_coins()['black'] <= 1:
-                self.players[p].add_points(2)
-                self.board.remove_coins('black', 2)
-        elif m == 3:                          # red-strike
-            if self.board.get_coins()['red'] != 0:
-                self.players[p].add_points(3)
-                self.board.remove_coins('red', 1)
-        elif m == 4:                          # striker-strike <foul>
-            self.players[p].remove_points(1)
-        elif m == 5:                          # defunct <foul>
-            self.players[p].remove_points(2)
-        elif m == 6:                          # none <miss>
-            self.players[p].commit_miss()
-
-        # UNCOMMENT THE BELOW LINE TO SEE EVERY MOVE
-        # self.__print_details__(p, m)
+        '''
+        funcs = [
+            self.strike,
+            self.multistrike,
+            self.red_strike,
+            self.defunct,
+            self.striker_strike,
+            self.nothing
+        ]
+        funcs[m - 1](p, coins)
 
     def play(self, moves):
-        mvs = moves.split(self.move_sep)
-        for p, m in enumerate(mvs):
-            if not self.is_game_over():
-                self.move(p, int(m))
+        # mvs = moves.split(self.move_sep)
+        self.move(1, 2, 'red')
+        # if not self.is_game_over():
+        #     self.move(mvs[0], int(mvs[1]), 'white', 'white')
