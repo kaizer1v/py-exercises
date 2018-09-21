@@ -1,3 +1,4 @@
+import collections
 from board import Board
 from player import Player
 
@@ -6,7 +7,6 @@ class Game:
     def __init__(self, coins, players=2):
         # `move_names` is only for reference
         self.move_names = [
-            'invalid',
             'strike',
             'multistrike',
             'red strike',
@@ -52,28 +52,23 @@ class Game:
         if max_p >= 5 and (abs(points[0] - points[1]) > 3):
             return points.index(max_p) + 1  # returns winner player number
         elif (min_p <= 5 or max_p <= 5) or (min_p == max_p):
-            return 'draw'                  # draw
+            return 'draw'                   # draw
 
     def get_winner(self):
         points = self.get_points()
         return points.index(max(points)) + 1
 
     def strike(self, p, c):
-        '''
-        strikes a single coin
-        <args> should contain a single coin
-        '''
         if not self.board.get_coins()[c[0]] <= 0:
             self.players[p].add_points(self.points[c[0]])
             self.board.remove_coins(c[0], 1)
 
     def multistrike(self, p, c):
-        for ct in c:
-            q = c.count(ct)
+        counts = collections.Counter(c)
+        for ct, q in counts.items():
             if not self.board.get_coins()[ct] <= 0:
                 self.players[p].add_points(q * self.points[ct])
                 self.board.remove_coins(ct, q)
-        print(self.board.get_coins())
 
     def red_strike(self, p, c):
         if c[0] == 'red' and self.board.get_coins()[c[0]] != 0:
@@ -89,7 +84,7 @@ class Game:
     def nothing(self, p, c):
         self.players[p].commit_miss()
 
-    def move(self, p, m, *coins):
+    def move(self, p, m, coins):
         '''
         play the move <m> for the provided player
         and update player's <p> points
@@ -102,10 +97,16 @@ class Game:
             self.striker_strike,
             self.nothing
         ]
-        funcs[m - 1](p, coins)
+        funcs[m](p, coins)
 
     def play(self, moves):
-        # mvs = moves.split(self.move_sep)
-        self.move(1, 2, 'red')
-        # if not self.is_game_over():
-        #     self.move(mvs[0], int(mvs[1]), 'white', 'white')
+        mvs = moves.split(self.move_sep)
+        print('Player {}, played {}, {}, with {}'.format(
+            int(mvs[0]),
+            int(mvs[1]),
+            self.move_names[int(mvs[1])],
+            mvs[2:]
+        ))
+        if not self.is_game_over():
+            self.move(int(mvs[0]), int(mvs[1]), mvs[2:])
+            print('now points {}'.format(self.get_points()))
