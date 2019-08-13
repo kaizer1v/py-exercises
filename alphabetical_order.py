@@ -1,8 +1,8 @@
 def longest_substr(s):
-    """
+    '''
     Given a long string, we need to find the longest
     substring where all the letters in increasing order
-    """
+    '''
 
     alphabets = 'abcdefghijklmnopqrstuvwxyz'
     substr = s[0]
@@ -21,6 +21,5 @@ def longest_substr(s):
 
     return longest
 
-
-#print(longest_substr('feeagrepoasdgrepasdjrepgassbrebgaspdodge'))
-#print(longest_substr('feeaabcdeilnxygrepasdwhatthefuckaspdodge'))
+print(longest_substr('feeagrepoasdgrepasdjrepgassbrebgaspdodge'))
+print(longest_substr('feeaabcdeilnxygrepasdwhatthefuckaspdodge'))

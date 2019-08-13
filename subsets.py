@@ -18,7 +18,20 @@ def genSubsets(L):
     return smaller + new
 
 # Example 1
-genSubsets([1, 2, 3])
+print(genSubsets([1, 2, 3, 4, 5]))
+print(genSubsets([1, 2, 3, 4]))
+print(genSubsets([1, 2, 3]))
+
+# The number of sets produced from a list would be = 2^n where n = length of the list
+#   including an empty set as well as the list itself 
+
+
+def countSubsets(L):
+    '''
+    given a list `L`, return the number
+    of possible subsets
+    '''
+    return pow(2, len(L))
 
 
 def isSubset(L1, L2):

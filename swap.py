@@ -1,3 +1,8 @@
+'''
+This is implementing a swap sort algorithm
+to a given list
+'''
+
 def swapSort(L):
     """ L is a list on integers """
     print("Original L: ", L)
