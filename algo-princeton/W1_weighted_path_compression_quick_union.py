@@ -3,11 +3,11 @@ Week 1 - Ultra improved Quick Union
 
 [video](https://www.coursera.org/learn/algorithms-part1/lecture/RZW72/quick-union-improvements)
 
-Uses weighted graphs, where you weigh the graph, and attach the one which is smaller
-to the larger one.
+In the weighted graph algorithm, when you look for a root of a node, you are
+traversing through every node to get to the root - why not connect every node passed
+through directly to the root? (will make traversing even faster)
+This is called "Path Compression"
 '''
-
-
 class QU:
 
   garph = []

@@ -4,7 +4,7 @@ Week 1 - Quick Union
 [video](https://www.coursera.org/learn/algorithms-part1/lecture/ZgecU/quick-union)
 
 Uses a lazy appraoch to store the elements. So, every element in the list
-becomes the parent of the index at that element.
+becomes the parent of the index at that element. (essentially building a tree)
 
 --> indexes    0  1  2  3  4  5  6  7  8  9
 --> array     [0, 1, 9, 4, 9, 6, 6, 7, 8, 9]
@@ -15,8 +15,6 @@ Looking at this array, the parent of
 - 3 is 4
 etc.
 '''
-
-
 class QU:
 
   garph = []

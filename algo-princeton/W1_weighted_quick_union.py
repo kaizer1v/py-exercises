@@ -5,9 +5,11 @@ Week 1 - mproved Quick Union
 
 Uses weighted graphs, where you weigh the graph, and attach the one which is smaller
 to the larger one.
+
+Always put the root of the smaller tree (by checking weight) under the root of the 
+larger tree, this will increase the efficiency of "searching" for the root, since it
+has to traverse less deep.
 '''
-
-
 class QU:
 
   garph = []
@@ -20,17 +22,27 @@ class QU:
       return
 
     # check the weight of the trees
+    #   and put smaller tree inside bigger tree
     if self.weight[a] < self.weight[b]:
-      self.graph[root_a] = root_b
+      self.graph[root_b] = root_a
       self.weight[root_b] += self.weight[root_a]
     else:
-      self.graph[root_b] = root_a
+      self.graph[root_a] = root_b
       self.weight[root_a] += self.weight[root_b]
 
   def root(self, a):
     if self.graph[a] == a:
       return a
     return self.root(self.graph[a])
+
+  # this is just another way of writing the root function
+  def root_loop(self, a):
+
+    # until you find an `a` that's pointing to itself,
+    #   keep checking for `a`'s parent
+    while a != self.array[a]:
+      a = self.array[a]
+    return a
 
   def connected(self, a, b):
     return self.root(a) == self.root(b)

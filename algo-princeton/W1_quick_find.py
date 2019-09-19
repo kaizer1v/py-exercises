@@ -9,8 +9,11 @@ NOTE: this is a greedy algorithm, not necessarily the
 best implementation.
 
 How it works: watch this [video](https://www.coursera.org/learn/algorithms-part1/lecture/EcF3P/quick-find)
+
+This algo has an O(N^2) run time
 '''
-class UF:
+# QF = Quick Find
+class QF:
   graph = []
 
   '''
@@ -57,11 +60,11 @@ if __name__ == '__main__':
   input_lines = input_file.readlines()
 
   size = int(input_lines[0])
-  uf = UF(size)
+  qf = QF(size)
 
   for i in range(1, len(input_lines)):
     inputs = list(map(int, input_lines[i].strip('\n').split(' ')))
-    if uf.union(inputs[0], inputs[1]):
+    if qf.union(inputs[0], inputs[1]):
       print('Connecting {:d} & {:d}'.format(inputs[0], inputs[1]))
 
-  print('Graph looks like', uf)
+  print('Graph looks like', qf)
