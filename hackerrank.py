@@ -182,7 +182,7 @@ def timeInWords(h, m):
         return words[n]
     if m == 0:
         to_return = getWord(h) + ' o\' clock'
-    elif m > 30 and m <= 59:
+    elif 30 < m <= 59:
         if h + 1 > 12:
             h = (h - 12)
         if m == 45:
@@ -191,7 +191,7 @@ def timeInWords(h, m):
             to_return = getWord(60 - m) + ' minute to ' + getWord(h + 1)
         else:
             to_return = getWord(60 - m) + ' minutes to ' + getWord(h + 1)
-    elif m >= 1 and m < 30:
+    elif 1 <= m < 30:
         if m == 15:
             to_return = 'quarter past ' + getWord(h)
         elif m == 1:
@@ -202,13 +202,13 @@ def timeInWords(h, m):
         to_return = 'half past ' + getWord(h)
     return to_return
 
-print(timeInWords(5, 30))
-print(timeInWords(5, 20))
-print(timeInWords(3, 00))
-print(timeInWords(3, 15))
-print(timeInWords(12, 45))
-print(timeInWords(12, 29))
-print(timeInWords(12, 59))
+# print(timeInWords(5, 30))
+# print(timeInWords(5, 20))
+# print(timeInWords(3, 00))
+# print(timeInWords(3, 15))
+# print(timeInWords(12, 45))
+# print(timeInWords(12, 29))
+# print(timeInWords(12, 59))
 
 
 
@@ -216,8 +216,200 @@ print(timeInWords(12, 59))
 
 
 
+    
+
+
+'''
+algo to find the closest pair that (add, sub, product ...) to
+some number
+
+here the sum shouldn't be greater than 60
+'''
+import sys
+def getMoneySpent(keyboards, drives, b):
+    # k = 0
+    # d = len(drives) - 1
+    total = -2
+
+    for k in keyboards:
+        for d in drives:
+            if (k + d) > total and (k + d) <= b:
+                total = (k + d)
+
+    if total == -2:
+        return -1
+    return total
+
+
+# print(getMoneySpent([3, 1], [5, 2, 8], 10))
+# print(getMoneySpent([5], [0], 5))
 
 
 
 
 
+
+'''
+generate a dictionary holding the number occurances
+for each integer
+'''
+def countingSort(arr):
+    if max(arr) <= len(arr):
+        results = [0 for i in range(len(arr))]
+        for val in arr:
+            results[val] += 1
+
+        return results
+
+# arr = ['63', '25', '73', '1', '98', '73', '56', '84', '86', '57', '16', '83', '8', '25', '81', '56', '9', '53', '98', '67', '99', '12', '83', '89', '80', '91', '39', '86', '76', '85', '74', '39', '25', '90', '59', '10', '94', '32', '44', '3', '89', '30', '27', '79', '46', '96', '27', '32', '18', '21', '92', '69', '81', '40', '40', '34', '68', '78', '24', '87', '42', '69', '23', '41', '78', '22', '6', '90', '99', '89', '50', '30', '20', '1', '43', '3', '70', '95', '33', '46', '44', '9', '69', '48', '33', '60', '65', '16', '82', '67', '61', '32', '21', '79', '75', '75', '13', '87', '70', '33']
+# mapped_arr = list(map(lambda x: int(x), arr))
+
+# print(countingSort([]))
+# print(countingSort([1, 1]))
+
+
+
+
+
+'''
+find the smallest absolute difference between elements of an array
+'''
+def closestNumbers(arr):
+    # s_arr = sorted(arr)
+    l = 0
+    r = len(arr) - 1
+    diff = sys.maxsize
+    to_return = []
+
+    while l < r:
+        # If this pair is closer to diff than  
+        # the previously found closest, 
+        # then update res_l, res_r and diff 
+        if abs(arr[l] - arr[r]) < diff:
+            diff = abs(arr[l] - arr[r])
+            to_return = []
+            to_return.extend([arr[l], arr[r]])
+            l = l + 1
+
+        if abs(arr[l] - arr[r]) > diff: 
+            r = r - 1
+        # elif abs(arr[l] - arr[r]) < diff:
+        #     l = l + 1
+        else:
+            to_return.extend([arr[l], arr[r]])
+            l = l + 1
+            # r = r - 1
+
+        print('left={:d}, right={:d} & diff={:d}'.format(arr[l], arr[r], diff))
+
+    return to_return
+
+
+# print(closestNumbers([1, 2, 3, 4, 5]))
+# print(closestNumbers([-70, -64, -39, -36, -35, -20, 30, 266, 624, 737]))
+
+
+
+
+
+
+
+'''
+given two arrays, find the missing items from the second array <brr> within the
+first array <arr>
+
+brr = original array without the missing items
+arr = array with missing items
+'''
+def missingNumbers(arr, brr):
+    to_return = []
+    b_len = len(brr)
+    a_len = len(arr)
+    i, j = 0, 0
+
+    if arr == brr:
+        return []
+
+    if a_len < b_len:
+        while j < a_len and i < b_len:
+            if brr[i] != arr[j]:
+                to_return.append(brr[i])
+                i += 1
+            else:
+                if i == b_len:
+                    j += 1
+                elif j == a_len:
+                    i += 1
+                else:
+                    i += 1
+                    j += 1
+
+    elif a_len > b_len:
+        # the input is wrong
+        return []
+
+    if i < b_len:
+        to_return += brr[i:]
+
+    return sorted(len(set(to_return)))
+
+# print(missingNumbers(
+#     [1, 2, 4, 5, 8, 1, 10],                # j
+#     [1, 2, 3, 4, 5, 6, 7, 8, 9, 1, 10]     # i
+# ))
+
+# print(missingNumbers(
+#     [11, 4, 11, 7, 13, 4, 12, 11, 10, 14],                            # j
+#     [11, 4, 11, 7, 3, 7, 10, 13, 4, 8, 12, 11, 10, 14, 12]            # i
+# ))
+
+# print(missingNumbers(
+#     [203, 204, 205, 206, 207, 208, 203, 204, 205, 206],                 # j
+#     [203, 204, 204, 205, 206, 207, 205, 208, 203, 206, 205, 206, 204]   # i
+# ))
+
+
+
+
+
+
+'''
+given a set multiple lists, find the intersecting path
+between `path` and `other` and output the intersecting
+path only
+
+eg: path = [1, 2, 3, 4, 5, 6]
+& other = [3, 4, 5, 7, 9]
+
+output should be [3, 4, 5]
+
+Asymtotic time O(p * o)
+'''
+def longestIntersection(p, o):
+    i = 0
+    j = 0
+    temp = []
+    intersection = []
+
+    while p[i] != o[j]:
+        if p[i] == o[j]:
+            hold_i = i
+            hold_j = j
+            temp = []
+            while p[hold_i] != o[hold_j]:
+                temp.append(p[hold_i])
+                hold_i += 1
+                hold_j += 1
+
+            if len(temp) > len(intersection):
+                intersection = temp
+                temp = []
+                i += 1
+        j += 1
+
+
+
+print(longestIntersection(
+    [5, 7, 9, 7, 6, 2, 4, 8],
+    [1, 3, 7, 9, 7, 4, 8]
+))
