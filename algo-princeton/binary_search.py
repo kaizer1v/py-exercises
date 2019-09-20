@@ -39,6 +39,28 @@ def binary_search_loop(l, elem):
 
   return False
 
+
+'''
+works if the list is in reverse order
+'''
+def binary_search_v2(l, elem, asc):
+  if len(l) == 1 and l[0] != elem:
+    return False
+
+  mid = len(l) // 2
+  if l[mid] == elem:
+    return True
+
+  if elem > l[mid]:
+    new_l = l[mid + 1:] if asc == True else l[:mid]
+  else:
+    new_l = l[:mid] if asc == True else l[mid + 1:]
+
+  return binary_search(new_l, elem, asc)
+
+
+
+
 sample_l = [6, 13, 14, 25, 33, 43, 51, 53, 64, 72, 84, 93, 95, 96, 97]
 elem = 93
 

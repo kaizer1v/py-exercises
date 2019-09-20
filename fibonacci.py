@@ -40,10 +40,10 @@ def cache_fib(num):
 def fib_efficient(n):
   if n < 2:
     return n
-  print('>>>>>>', cache)
   return cache_fib(n - 1) + cache_fib(n - 2)
 
-print(fib_efficient(7))
+print(fib_efficient(10))
+print(cache)
 
 
 

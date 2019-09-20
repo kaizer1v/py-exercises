@@ -9,6 +9,9 @@ to the larger one.
 Always put the root of the smaller tree (by checking weight) under the root of the 
 larger tree, this will increase the efficiency of "searching" for the root, since it
 has to traverse less deep.
+
+* Weight = number of nodes under a present node
+NOTE: weight is NOT the depth of a tree
 '''
 class QU:
 
