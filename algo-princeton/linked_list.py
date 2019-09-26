@@ -91,27 +91,27 @@ Let's try to create a list of nodes like so
 6 -> 3 -> 4 -> 2 -> 1
 '''
 
-node6 = Node(6)
-node3 = Node(3)
-node4 = Node(4)
-node2 = Node(2)
-node1 = Node(1)
+# node6 = Node(6)
+# node3 = Node(3)
+# node4 = Node(4)
+# node2 = Node(2)
+# node1 = Node(1)
 
-ll = LinkedListExpectsNode()
-ll.insert(node6)
-ll.insert(node3)
-ll.insert(node4)
-ll.insert(node2)
-ll.insert(node1)
+# ll = LinkedListExpectsNode()
+# ll.insert(node6)
+# ll.insert(node3)
+# ll.insert(node4)
+# ll.insert(node2)
+# ll.insert(node1)
 
 # print('2', ll.find(2))
 # print('6', ll.find(6))
 # print('4', ll.find(4))
 # print('5', ll.find(5))
 
-ll.print()
-ll.remove(3)
-ll.print()
+# ll.print()
+# ll.remove(3)
+# ll.print()
 
 
 

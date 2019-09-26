@@ -4,30 +4,20 @@ LIFO (Last In First Out)
 -> [.., .., .., ..] |
 '''
 from linked_list import Node
-from linked_list import LinkedList
+from linked_list import LinkedListExpectsNode
 
-class StackUsingLinkedLists:
-
-  def is_empty(self):
-    return self.head == None
+class StackUsingLinkedLists(LinkedListExpectsNode):
 
   # pushes element as the first element
   def push(self, item):
-    node = Node(item, self.head)
-    self.head = node
+    node = Node(item)
+    LinkedListExpectsNode.insert(self, node)
 
   def pop(self):
-    node = self.head
-    self.head = self.head.get_next()
-    return node
-
-  def print(self):
-    node = self.head
-    while node.get_next() != None:
-      print(node.get_data())
-      node = node.get_next()
-    if node.get_next() == None:
-      print(node.get_data())
+    if self.is_empty():
+      return None
+    first = self.head
+    LinkedListExpectsNode.remove(self, first.get_data())
 
   def __init__(self):
     self.head = None
@@ -36,8 +26,10 @@ class StackUsingLinkedLists:
 # sll = StackUsingLinkedLists()
 # sll.push('a')
 # sll.push('b')
-# sll.pop()
 # sll.push('c')
+# sll.print()
+# sll.pop()
+# sll.print()
 # sll.push('d')
 # sll.pop()
 # sll.pop()
@@ -154,13 +146,13 @@ class StackUsingArraysIterable:
     self.array = []
 
 
-suai = StackUsingArraysIterable()
-suai.push(5)
-suai.push(1)
-suai.pop()
-suai.push(6)
-suai.push(2)
-suai.pop()
+# suai = StackUsingArraysIterable()
+# suai.push(5)
+# suai.push(1)
+# suai.pop()
+# suai.push(6)
+# suai.push(2)
+# suai.pop()
 
 
 # for elem in suai:
