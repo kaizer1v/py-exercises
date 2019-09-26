@@ -12,7 +12,6 @@ n + (n - 1) + (n - 2) + (n - 3) ...
 
 n   - number of swaps
 n^2 - number of comparisions (to find the min)
-
 '''
 
 def selection_sort(l):

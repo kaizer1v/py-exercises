@@ -58,12 +58,12 @@ class StackUsingArrays:
   def pop(self):
     if self.is_empty():
       return -1
-    to_return = self.array[-1]
-    self.array = self.array[:-1]
-    return to_return
+    popped = self.array[0]
+    self.array = self.array[1:]
+    return popped
 
   def print(self):
-    print(list(reversed(self.array)))
+    print(list(self.array))
 
   def __init__(self):
     self.array = []
