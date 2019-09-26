@@ -8,6 +8,9 @@ starting from the left most, sort all the elements until your current element. F
 example, if you are at the 3rd element, everything to the left of it would be sorted
 by moving one position to the left, comparing it with that element, if smaller
 then swapping it.
+
+RUN TIME:
+
 '''
 
 def insertion_sort(l):
