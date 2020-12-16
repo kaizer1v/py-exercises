@@ -1,61 +1,39 @@
-def fib(n):    # write Fibonacci series up to n
-  a, b = 0, 1
-  while a < n:
-    #print a,
-    a, b = b, a+b
-#print("Write fibonacci numbers upto")
-# n = int(input())
-# fib(n)
+<!DOCTYPE html>
+<html lang="en">
 
+  <head>
+  <meta charset="UTF-8">
+  <link href="http://gmpg.org/xfn/11" rel="profile">
 
+  <!-- Enable responsiveness on mobile devices-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <title>
+    
+      Heuristic Evaluation - Air India &middot; Vivek Shrinivasan
+    
+  </title>
 
-def recurFib(n):
-  """
-  assumes n is an integer and >= 0
-  returns fibonacci of n
-  """
-  assert type(n) == int and n >= 0
-  if n == 0 or n == 1:
-    return 1
-  return recurFib(n - 1) + recurFib(n - 2)
+  <!-- CSS -->
+  <link
+    rel="stylesheet"
+    href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+    integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
+    crossorigin="anonymous"
+  />
+  <link href="https://fonts.googleapis.com/css?family=Rubik" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono|Libre+Franklin:700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css" />
 
-'''
-The above algorithm is wrong because you are computing
-the same fibonacci number twice, when the n-2 becomes the
-n-1. Eg: fib(5) is computed twice.
+  <!-- Icons -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/apple-touch-icon-precomposed.png">
+  <link rel="shortcut icon" href="/public/favicon.ico">
 
-A better way to do this is to use the technique called
-memoisation, where you are storing the results and retrieving
-if the computation is already done. Let's re-write the
-above code to be more efficient
-'''
+  <!-- RSS -->
+  <link rel="alternate" type="application/atom+xml" title="Vivek Shrinivasan" href="/atom.xml">
+</head>
 
-cache = {} # to store already computed values
-def cache_fib(num):
-  if num not in cache.keys():
-    cache[num] = fib_efficient(num)
-  return cache[num]
+  <!-- scripts -->
 
-def fib_efficient(n):
-  if n < 2:
-    return n
-  return cache_fib(n - 1) + cache_fib(n - 2)
-
-print(fib_efficient(10))
-print(cache)
-
-
-
-def sumEvenFib():
-  """
-  By considering the terms in the Fibonacci
-  sequence whose values do not exceed four 
-  million, find the sum of the even-valued 
-  terms.
-  """
-  a, b, total = 0, 1, 0
-  while a < 4000000:
-    total += a
-    a, b = b, a+b
-  return total
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bo

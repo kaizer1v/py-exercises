@@ -32,6 +32,18 @@ class BinaryTree(object):
 
 # Now, lets build a binary tree :)
 
+'''
+			(5)
+		   /   \
+		 (2)    (8)
+        /   \\  / 
+      (1)  (4) (6)
+           /     \\ 
+		  (3)	 (7)
+
+''' 
+
+
 n5 = binaryTree(5)		# root node
 n2 = binaryTree(2)
 n1 = binaryTree(1)
