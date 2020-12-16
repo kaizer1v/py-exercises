@@ -23,7 +23,7 @@ def selection_sort(l):
     # 1. get min from the list
     min_i = find_min(l[i:])
     
-    # 2. swap with the last sorted element
+    # 2. swap
     l[last_sorted], l[last_sorted + min_i] = l[last_sorted + min_i], l[last_sorted]
     last_sorted += 1
 

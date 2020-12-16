@@ -80,9 +80,9 @@ def compPlayHand(hand, wordList, n):
   totalscore = 0
 
   while calculateHandlen(hand) > 0:
-    # print calculateHandlen(hand)
+    # print(calculateHandlen(hand))
     compinput = compChooseWord(hand, wordList, n)
-    print 'Current Hand:',
+    print('Current Hand:')
     displayHand(hand)
 
     if isValidWord(compinput, hand, wordList) == True:
@@ -91,10 +91,10 @@ def compPlayHand(hand, wordList, n):
     else:
       break
 
-    print '"%s" earned %d points. Total: %d points' % (compinput, wordscore, totalscore)
+    print('"%s" earned %d points. Total: %d points' % (compinput, wordscore, totalscore))
     hand = updateHand(hand, compinput)
   
-  print 'Total score: %d points.' % totalscore
+  print('Total score: %d points.' % totalscore)
     
 #
 # Problem #8: Playing a game
@@ -140,13 +140,13 @@ def playGame(wordList):
         currHand = dealHand(HAND_SIZE)
         compPlayHand(currHand, wordList, HAND_SIZE)
       else:
-        print 'Invalid command.'
+        print('Invalid command.')
         print
         continue
     # else if user inputs 'r', then deal with the previoius hand
     elif userinput == 'r':
       if currHand == '':
-        print 'You have not played a hand yet. Please play a new hand first!'
+        print('You have not played a hand yet. Please play a new hand first!')
       else:
         comporuser = raw_input('Enter u to have yourself play, c to have the computer play: ')
         if comporuser == 'u':
@@ -154,11 +154,11 @@ def playGame(wordList):
         elif comporuser == 'c':
           compPlayHand(currHand, wordList, HAND_SIZE)
         else:
-          print 'Invalid command.'
+          print('Invalid command.')
           print
           continue
     else:
-      print 'Invalid command.'
+      print('Invalid command.')
       print
     
     userinput = raw_input('Enter n to deal a new hand, r to replay the last hand, or e to end game: ')
